@@ -1,6 +1,7 @@
 # Environment Secrets
 .env
-
+.env.example
+    
 # Local Analytical Data (Research Blocks)
 data/raw/
 data/processed/
