@@ -1,0 +1,41 @@
+name: Analytical Integrity CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install .[dev]
+        
+    - name: Lint with Ruff
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        ruff check .
+        
+    - name: Format check with Ruff
+      run: |
+        ruff format --check .
+        
+    - name: Run unit tests
+      run: |
+        python -m unittest discover tests
+      env:
+        SEC_USER_AGENT: CI-Bot (ci@example.com)
+        # Mocking OpenAI key for CI if needed, though tests use mocks
+        OPENAI_API_KEY: sk-dummy-key-for-ci

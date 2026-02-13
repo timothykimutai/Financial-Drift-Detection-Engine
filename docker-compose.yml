@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  drift-engine:
+    build: .
+    image: drift-engine:latest
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+    command: --tickers NVDA AAPL
