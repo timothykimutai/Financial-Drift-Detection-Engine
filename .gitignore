@@ -10,6 +10,8 @@ outputs/
 logs/
 
 # Python Build & Cache
+venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo

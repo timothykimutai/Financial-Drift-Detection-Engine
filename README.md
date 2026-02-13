@@ -99,7 +99,7 @@ pip install -r requirements.txt
 
 ### Docker Execution
 ```bash
-docker build -t drift-engine .
+docker compose up --build
 docker run --env-file .env -v $(pwd)/outputs:/app/outputs drift-engine --tickers NVDA
 ```
 
