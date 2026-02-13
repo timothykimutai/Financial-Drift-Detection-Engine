@@ -1,0 +1,24 @@
+# Environment Secrets
+.env
+
+# Local Analytical Data (Research Blocks)
+data/raw/
+data/processed/
+data/transcripts/
+outputs/
+logs/
+
+# Python Build & Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# System Files
+.DS_Store
+Thumbs.db
