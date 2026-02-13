@@ -23,7 +23,7 @@ graph TD
 
     subgraph "Orchestration & Output"
         Pipe[src/pipeline.py] -->|Coordinates| Analytics
-        Drift --> Result[outputs/{ticker}/{date}/]
+        Drift --> Result["outputs/{ticker}/{date}/"]
         Result --> Viz[src/visualization.py]
         Result --> Report[src/reporting.py]
     end
